@@ -1,7 +1,10 @@
 {
     "private": true,
     "type": "module",
-    "scripts": { "dev": "vite --host" },
+    "scripts": {
+        "dev": "vite --host",
+        "build": "vite build --outDir pb_public"
+    },
     "dependencies": { "lit": "3.3.2" },
     "devDependencies": { "vite": "^7.3.1" }
 }
