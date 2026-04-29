@@ -1,9 +1,10 @@
-import { LitElement, html } from "lit"
+import { html } from "lit"
+import { ComponenteBase } from "./componente-base"
 
-class PokeApp extends LitElement {
+class PokeApp extends ComponenteBase {
     render() {
         return html`
-        <main style="display: block">
+        <main>
             <p class="title">Aventura en la región de Sinnoh</p>
             <p class="subtitle is-2">Por YardasDev</p>
         </main>
