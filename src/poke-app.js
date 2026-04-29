@@ -6,7 +6,7 @@ class PokeApp extends ComponenteBase {
         return html`
         <main>
             <p class="title">Aventura en la región de Sinnoh</p>
-            <p class="subtitle is-2">Por YardasDev</p>
+            <p class="subtitle">Por YardasDev</p>
         </main>
         `
     }
