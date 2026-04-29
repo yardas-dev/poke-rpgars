@@ -1,8 +1,7 @@
-import { LitElement, css, unsafeCSS } from "lit"
-import bulma from "bulma/css/bulma.css?inline"
+import { LitElement } from "lit"
 
 export class ComponenteBase extends LitElement {
-    static styles = [
-        css`${unsafeCSS(bulma)}`
-    ]
+    createRenderRoot() {
+        return this
+    }
 }
