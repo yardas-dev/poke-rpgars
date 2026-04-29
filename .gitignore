@@ -3,5 +3,8 @@ logs
 npm-debug.log*
 
 node_modules
-dist
 *.local
+
+pb_data
+pb_public
+pocketbase
