@@ -2,12 +2,13 @@ import { html } from "lit"
 import { Routes } from "@lit-labs/router"
 
 import { ComponenteBase } from "./componentes/componente-base"
-import "./barra-navegacion"
-import "./vista-personajes"
-import "./vista-equipos"
+import "./componentes/barra-navegacion"
+
+import "./vistas/vista-personajes"
+import "./vistas/vista-equipos"
 import "./vistas/vista-combates"
-import "./vista-encuentros"
-import "./vista-pokedex"
+import "./vistas/vista-encuentros"
+import "./vistas/vista-pokedex"
 
 class PokéApp extends ComponenteBase {
     constructor() {

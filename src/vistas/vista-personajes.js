@@ -1,5 +1,5 @@
 import { html } from "lit"
-import { ComponenteBase } from "./componentes/componente-base"
+import { ComponenteBase } from "../componentes/componente-base"
 
 class VistaPersonajes extends ComponenteBase {
     render() {
