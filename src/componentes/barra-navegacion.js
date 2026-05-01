@@ -2,6 +2,31 @@ import { html } from "lit"
 import { ComponenteBase } from "./componente-base"
 
 class BarraNavegación extends ComponenteBase {
+    static get properties() {
+        return {
+            rutaActual: { type: String }
+        }
+    }
+
+    updated(cambio) {
+        if (! cambio.has("rutaActual")) return
+
+        this.renderRoot.querySelectorAll(
+            ".navbar-start a.navbar-item"
+        ).forEach(enlace => {
+            const url = new URL(
+                enlace.getAttribute("href"),
+                window.location.origin
+            )
+
+            if (url.pathname === this.rutaActual) {
+                enlace.classList.add("is-tab", "is-active")
+            } else {
+                enlace.classList.remove("is-tab", "is-active")
+            }
+        })
+    }
+
     render() {
         return html`
             <nav class="navbar">

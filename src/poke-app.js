@@ -11,6 +11,12 @@ import "./vistas/vista-encuentros"
 import "./vistas/vista-pokedex"
 
 class PokéApp extends ComponenteBase {
+    static get properties() {
+        return {
+            rutaActual: { type: String }
+        }
+    }
+
     constructor() {
         super()
         this._rutas = new Routes(this, [
@@ -20,6 +26,7 @@ class PokéApp extends ComponenteBase {
             { path: "/encuentros", render: () => html`<vista-encuentros></vista-encuentros>` },
             { path: "/pokedex", render: () => html`<vista-pokedex></vista-pokedex>` },
         ])
+        this.rutaActual = window.location.pathname
     }
 
     connectedCallback() {
@@ -27,14 +34,15 @@ class PokéApp extends ComponenteBase {
         this._rutas.goto(window.location.pathname)
         this.addEventListener("navegar", (ev) => {
             const ruta = ev.detail.nombre
-            history.pushState({}, '', ruta)
+            this.rutaActual = ruta
+            history.pushState({}, "", ruta)
             this._rutas.goto(ruta)
         })
     }
 
     render() {
         return html`
-            <barra-navegacion></barra-navegacion>
+            <barra-navegacion .rutaActual=${this.rutaActual}></barra-navegacion>
 
             <main class="section">
                 ${this._rutas.outlet()}
