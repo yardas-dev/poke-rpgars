@@ -40,7 +40,10 @@ class PokeApp extends ComponenteBase {
 
         return html`
             <barra-navegacion></barra-navegacion>
-            ${vistaActual.contenido}
+
+            <main class="section">
+                ${vistaActual.contenido}
+            </main>
         `
     }
 }
