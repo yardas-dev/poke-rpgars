@@ -2,6 +2,10 @@ import { html } from "https://cdn.jsdelivr.net/npm/lit@3.3.2/+esm"
 import { ComponenteBase } from "./componente-base.js"
 
 export class BarraNavegacion extends ComponenteBase {
+    obtenerClaseItem(ruta) {
+        return ruta === window.location.pathname ? "is-tab is-active" : ""
+    }
+
     render() {
         const items = [
             { ruta: "/", texto: "Personajes" },
@@ -31,7 +35,10 @@ export class BarraNavegacion extends ComponenteBase {
                         ${
                             items.map(
                                 item => html`
-                                    <a class="navbar-item" href=${item.ruta}>
+                                    <a
+                                        class="navbar-item ${this.obtenerClaseItem(item.ruta)}"
+                                        href=${item.ruta}
+                                    >
                                         ${item.texto}
                                     </a>
                                 `
