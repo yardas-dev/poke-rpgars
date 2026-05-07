@@ -1,10 +1,2 @@
-logs
-*.log
-npm-debug.log*
-
-node_modules
-*.local
-
 pb_data
-pb_public
 pocketbase
