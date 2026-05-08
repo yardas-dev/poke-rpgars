@@ -1,0 +1,32 @@
+import { html } from "https://cdn.jsdelivr.net/npm/lit@3.3.2/+esm"
+
+import "../views/vista-personajes.js"
+import "../views/vista-equipos.js"
+import "../views/vista-combates.js"
+import "../views/vista-encuentros.js"
+import "../views/vista-pokedex.js"
+
+const rutas = [
+    {
+        ruta: "/",
+        vista: html`<vista-personajes></vista-personajes>`
+    },
+    {
+        ruta: "/equipos",
+        vista: html`<vista-equipos></vista-equipos>`
+    },
+    {
+        ruta: "/combates",
+        vista: html`<vista-combates></vista-combates>`
+    },
+    {
+        ruta: "/encuentros",
+        vista: html`<vista-encuentros></vista-encuentros>`
+    },
+    {
+        ruta: "/pokedex",
+        vista: html`<vista-pokedex></vista-pokedex>`
+    },
+]
+
+export default rutas
