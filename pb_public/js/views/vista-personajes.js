@@ -1,12 +1,12 @@
 import { html } from "https://cdn.jsdelivr.net/npm/lit@3.3.2/+esm"
-import { cargar } from "../lib/pocketbase.js"
+import { base } from "../lib/base.js"
 import { ComponenteBase } from "../components/componente-base.js"
 import "../components/ficha-personaje.js"
 
 export class VistaPersonajes extends ComponenteBase {
     static get properties() {
         return {
-            personajes: { type: Array }
+            personajes: { type: Array },
         }
     }
 
@@ -15,29 +15,18 @@ export class VistaPersonajes extends ComponenteBase {
         this.personajes = []
     }
 
-    async connectedCallback() {
+    connectedCallback() {
         super.connectedCallback()
-        this.personajes = await this._traerPersonajes()
+        base.addEventListener("acabar", this.ejectutarAlAcabar)
     }
 
-    async _traerPersonajes() {
-        const pb = cargar()
-        const personajes = await pb.collection("personajes").getFullList()
-        const naturalezas = await pb.collection("naturalezas").getFullList()
-        const rangos = await pb.collection("rangos").getFullList()
+    disconnectedCallback() {
+        base.removeEventListener("acabar", this.ejectutarAlAcabar)
+        super.disconnectedCallback()
+    }
 
-        personajes.forEach(personaje => {
-            personaje.icono = this._obtenerRutaArchivo(personaje, "icono")
-            personaje.naturaleza = naturalezas.find(
-                naturaleza => naturaleza.id === personaje.naturaleza
-            )
-            personaje.rango = rangos.find(rango => rango.id === personaje.rango)
-            personaje.rango.icono = this._obtenerRutaArchivo(
-                personaje.rango, "icono"
-            )
-        })
-
-        return personajes
+    ejectutarAlAcabar = () => {
+        this.personajes = base.personajes
     }
 
     render() {
