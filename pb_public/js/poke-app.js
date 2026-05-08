@@ -1,4 +1,7 @@
 import { LitElement, html } from "https://cdn.jsdelivr.net/npm/lit@3.3.2/+esm"
+
+import { inicializar } from "./lib/pocketbase.js"
+
 import { ComponenteBase } from "./components/componente-base.js"
 
 import "./components/barra-navegacion.js"
@@ -10,6 +13,11 @@ import "./views/vista-encuentros.js"
 import "./views/vista-pokedex.js"
 
 class PokeApp extends ComponenteBase {
+    connectedCallback() {
+        super.connectedCallback()
+        inicializar()
+    }
+
     render() {
         const vistas = [
             {
