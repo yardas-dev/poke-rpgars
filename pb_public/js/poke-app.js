@@ -1,4 +1,4 @@
-import { LitElement, html } from "https://cdn.jsdelivr.net/npm/lit@3.3.2/+esm"
+import { html } from "https://cdn.jsdelivr.net/npm/lit@3.3.2/+esm"
 
 import rutas from "./lib/rutas.js"
 import { inicializar } from "./lib/pocketbase.js"
