@@ -14,5 +14,6 @@ La app consta de dos partes: una interfaz web (*front end*) hecha con HTML 5 y u
 
 1. Clona el repo: `git clone https://github.com/yardas-dev/poke-rpgars`
 2. Entra en el proyecto: `cd poke-rpgars`
-3. Lanza la app: `./pocketbase serve`
-4. Visita la app en http://localhost:8090/
+3. Descarga PocketBase para tu arquitectura colócalo aquí
+4. Lanza la app: `./pocketbase serve`
+5. Visita la app en http://localhost:8090/
