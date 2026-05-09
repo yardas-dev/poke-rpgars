@@ -1,6 +1,6 @@
 import PocketBase from "https://cdn.jsdelivr.net/npm/pocketbase@0.26.8/dist/pocketbase.es.mjs"
 
-const conexion = new PocketBase("http://localhost:8090")
+const SALUD_BASE_HUMANO = 4
 
 class GestorColecciones extends EventTarget {
     constructor() {
@@ -9,6 +9,7 @@ class GestorColecciones extends EventTarget {
     }
 
     async descargar() {
+        const conexion = new PocketBase("http://localhost:8090")
         const [personajes, naturalezas, rangos] = await Promise.all([
             conexion.collection("personajes").getFullList(),
             conexion.collection("naturalezas").getFullList(),
@@ -26,6 +27,8 @@ class GestorColecciones extends EventTarget {
             personaje.rango.icono = this._obtenerRutaArchivo(
                 personaje.rango, "icono"
             )
+
+            personaje.saludMax = SALUD_BASE_HUMANO + personaje.vitalidad
         })
 
         this.personajes = personajes
