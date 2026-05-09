@@ -14,7 +14,7 @@ class PokeApp extends ComponenteBase {
 
     render() {
         const rutaActual = rutas.find(
-            ruta => ruta.ruta === window.location.pathname
+            ruta => ruta.nombre === window.location.pathname
         )
 
         return html`

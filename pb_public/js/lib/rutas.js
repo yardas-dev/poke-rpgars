@@ -8,23 +8,23 @@ import "../views/vista-pokedex.js"
 
 const rutas = [
     {
-        ruta: "/",
+        nombre: "/",
         vista: html`<vista-personajes></vista-personajes>`
     },
     {
-        ruta: "/equipos",
+        nombre: "/equipos",
         vista: html`<vista-equipos></vista-equipos>`
     },
     {
-        ruta: "/combates",
+        nombre: "/combates",
         vista: html`<vista-combates></vista-combates>`
     },
     {
-        ruta: "/encuentros",
+        nombre: "/encuentros",
         vista: html`<vista-encuentros></vista-encuentros>`
     },
     {
-        ruta: "/pokedex",
+        nombre: "/pokedex",
         vista: html`<vista-pokedex></vista-pokedex>`
     },
 ]
