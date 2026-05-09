@@ -3,7 +3,7 @@ import { colecciones } from "../lib/colecciones.js"
 import { ComponenteBase } from "../components/componente-base.js"
 import "../components/ficha-personaje.js"
 
-export class VistaPersonajes extends ComponenteBase {
+class VistaPersonajes extends ComponenteBase {
     static get properties() {
         return {
             personajes: { type: Array },

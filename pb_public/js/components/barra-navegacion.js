@@ -1,7 +1,7 @@
 import { html } from "https://cdn.jsdelivr.net/npm/lit@3.3.2/+esm"
 import { ComponenteBase } from "./componente-base.js"
 
-export class BarraNavegacion extends ComponenteBase {
+class BarraNavegacion extends ComponenteBase {
     obtenerClaseItem(ruta) {
         return ruta === window.location.pathname ? "is-tab is-active" : ""
     }
