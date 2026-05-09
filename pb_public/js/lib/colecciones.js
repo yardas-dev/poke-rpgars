@@ -1,18 +1,18 @@
 import PocketBase from "https://cdn.jsdelivr.net/npm/pocketbase@0.26.8/dist/pocketbase.es.mjs"
 
-const pb = new PocketBase("http://localhost:8090")
+const conexion = new PocketBase("http://localhost:8090")
 
-class Base extends EventTarget {
+class GestorColecciones extends EventTarget {
     constructor() {
         super()
         this.personajes = []
     }
 
-    async arrancar() {
+    async descargar() {
         const [personajes, naturalezas, rangos] = await Promise.all([
-            pb.collection("personajes").getFullList(),
-            pb.collection("naturalezas").getFullList(),
-            pb.collection("rangos").getFullList(),
+            conexion.collection("personajes").getFullList(),
+            conexion.collection("naturalezas").getFullList(),
+            conexion.collection("rangos").getFullList(),
         ])
 
         personajes.forEach(personaje => {
@@ -29,7 +29,7 @@ class Base extends EventTarget {
         })
 
         this.personajes = personajes
-        this.dispatchEvent(new Event("acabar"))
+        this.dispatchEvent(new Event("descargaTerminada"))
     }
 
     _obtenerRutaArchivo(registro, propiedad) {
@@ -40,4 +40,4 @@ class Base extends EventTarget {
     }
 }
 
-export const base = new Base()
+export const colecciones = new GestorColecciones()

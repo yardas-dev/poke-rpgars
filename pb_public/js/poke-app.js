@@ -1,7 +1,7 @@
 import { html } from "https://cdn.jsdelivr.net/npm/lit@3.3.2/+esm"
 
 import rutas from "./lib/rutas.js"
-import { base } from "./lib/base.js"
+import { colecciones } from "./lib/colecciones.js"
 
 import { ComponenteBase } from "./components/componente-base.js"
 import "./components/barra-navegacion.js"
@@ -9,7 +9,7 @@ import "./components/barra-navegacion.js"
 class PokeApp extends ComponenteBase {
     connectedCallback() {
         super.connectedCallback()
-        base.arrancar()
+        colecciones.descargar()
     }
 
     render() {

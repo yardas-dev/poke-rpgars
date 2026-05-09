@@ -1,5 +1,5 @@
 import { html } from "https://cdn.jsdelivr.net/npm/lit@3.3.2/+esm"
-import { base } from "../lib/base.js"
+import { colecciones } from "../lib/colecciones.js"
 import { ComponenteBase } from "../components/componente-base.js"
 import "../components/ficha-personaje.js"
 
@@ -17,16 +17,22 @@ export class VistaPersonajes extends ComponenteBase {
 
     connectedCallback() {
         super.connectedCallback()
-        base.addEventListener("acabar", this.ejectutarAlAcabar)
+        colecciones.addEventListener(
+            "descargaTerminada",
+            this.ejectutarAlTerminar
+        )
     }
 
     disconnectedCallback() {
-        base.removeEventListener("acabar", this.ejectutarAlAcabar)
+        colecciones.removeEventListener(
+            "descargaTerminada",
+            this.ejectutarAlTerminar
+        )
         super.disconnectedCallback()
     }
 
-    ejectutarAlAcabar = () => {
-        this.personajes = base.personajes
+    ejectutarAlTerminar = () => {
+        this.personajes = colecciones.personajes
     }
 
     render() {
