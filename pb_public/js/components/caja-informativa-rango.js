@@ -1,7 +1,7 @@
 import { html } from "https://cdn.jsdelivr.net/npm/lit@3.3.2/+esm"
-import { ComponenteBase } from "../components/componente-base.js"
+import { ComponenteBase } from "./componente-base.js"
 
-class CajaVisualizacionRango extends ComponenteBase {
+class CajaInformativaRango extends ComponenteBase {
     static get properties() {
         return {
             registro: { type: Object },
@@ -40,4 +40,4 @@ class CajaVisualizacionRango extends ComponenteBase {
         `
     }
 }
-customElements.define("caja-visualizacion-rango", CajaVisualizacionRango)
+customElements.define("caja-informativa-rango", CajaInformativaRango)
