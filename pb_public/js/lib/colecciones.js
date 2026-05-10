@@ -1,6 +1,7 @@
 import PocketBase from "https://cdn.jsdelivr.net/npm/pocketbase@0.26.8/dist/pocketbase.es.mjs"
 
 const SALUD_BASE_HUMANO = 4
+const VOLUNTAD_BASE = 2
 
 class GestorColecciones extends EventTarget {
     constructor() {
