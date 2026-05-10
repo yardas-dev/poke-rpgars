@@ -10,13 +10,16 @@ class GestorColecciones extends EventTarget {
 
     async descargar() {
         const conexion = new PocketBase("http://localhost:8090")
-        const [personajes, naturalezas, rangos] = await Promise.all([
-            conexion.collection("personajes").getFullList(),
+        const [medallas, naturalezas, personajes, rangos] = await Promise.all([
+            conexion.collection("medallas").getFullList(),
             conexion.collection("naturalezas").getFullList(),
+            conexion.collection("personajes").getFullList(),
             conexion.collection("rangos").getFullList(),
         ])
 
         personajes.forEach(personaje => {
+            personaje.color = personaje.sexo === "mujer" ? "danger" : "info"
+
             personaje.icono = this._obtenerRutaArchivo(personaje, "icono")
 
             personaje.naturaleza = naturalezas.find(
@@ -29,6 +32,20 @@ class GestorColecciones extends EventTarget {
             )
 
             personaje.saludMax = SALUD_BASE_HUMANO + personaje.vitalidad
+            personaje.confianzaMax = personaje.naturaleza.confianza_max
+            personaje.voluntadMax = VOLUNTAD_BASE + personaje.intuicion
+
+            const listaCompletaMedallas = []
+
+            medallas.forEach(medalla => {
+                listaCompletaMedallas.push({
+                    icono: this._obtenerRutaArchivo(medalla, "icono"),
+                    nombre: medalla.nombre,
+                    laTiene: personaje.medallas.includes(medalla.id),
+                })
+            })
+
+            personaje.medallas = listaCompletaMedallas
         })
 
         this.personajes = personajes
