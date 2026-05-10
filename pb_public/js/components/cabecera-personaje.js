@@ -17,10 +17,19 @@ class CabeceraPersonaje extends ComponenteBase {
         super.connectedCallback()
     }
 
+    alternarContenido() {
+        this.dispatchEvent(
+            new CustomEvent("alternar", { bubbles: true, composed: true })
+        )
+    }
+
     render() {
+        let claseColor = `has-background-${this.registro.color}-soft`
+
         return html`
             <header
-                class="card-header has-background-${this.registro.color}-soft"
+                class="card-header ${claseColor} is-pointer"
+                @click=${this.alternarContenido}
             >
                 <figure class="image is-96x96 m-4">
                     <img
@@ -42,7 +51,7 @@ class CabeceraPersonaje extends ComponenteBase {
                         ${this._normalizarMayus(this.registro.concepto)}
                     </small>
                     <br />
-                    <small class="has-text-${this.registro.color}-invert">
+                    <small class="has-text-${this.registro.color}-soft-invert">
                         ${this.registro.edad} años,
                         naturaleza ${this.registro.naturaleza.nombre}
                     </small>

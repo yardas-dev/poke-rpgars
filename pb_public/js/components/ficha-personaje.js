@@ -9,6 +9,7 @@ class FichaPersonaje extends ComponenteBase {
     static get properties() {
         return {
             personaje: { type: Object },
+            contenidoEstaContraido: { type: Boolean },
             modalEditarEstaActiva: { type: Boolean },
         }
     }
@@ -16,6 +17,7 @@ class FichaPersonaje extends ComponenteBase {
     constructor() {
         super()
         this.personaje = {}
+        this.contenidoEstaContraido = false
         this.modalEditarEstaActiva = false
     }
 
@@ -25,6 +27,35 @@ class FichaPersonaje extends ComponenteBase {
 
     cerrarModal() {
         this.modalEditarEstaActiva = false
+    }
+
+    alternarContenido() {
+        this.contenidoEstaContraido = ! this.contenidoEstaContraido
+    }
+
+    renderizarContenido() {
+        return html`
+            <div class="card-content">
+                <button class="button mb-5" @click=${this.abrirModal}>
+                    Editar
+                </button>
+                
+                ${this.renderizarSeccionPrincipal()}
+
+                ${this.renderizarSeccionAtributos()}
+                ${this.renderizarSeccionAtributosSociales()}
+
+                ${this.renderizarSeccionAptitudesLucha()}
+                ${this.renderizarSeccionAptitudesSupervivencia()}
+                ${this.renderizarSeccionAptitudesSocial()}
+                ${this.renderizarSeccionAptitudesSaber()}
+
+                ${this.renderizarSeccionLogros()}
+                ${this.renderizarSeccionMedallas()}
+
+                ${this.renderizarSeccionInventario()}
+            </div>
+        `
     }
 
     renderizarSeccionPrincipal() {
@@ -438,31 +469,13 @@ class FichaPersonaje extends ComponenteBase {
 
     render() {
         return html`
-            <div class="card">
+            <div class="card has-background-dark-soft">
                 <cabecera-personaje
                     .registro=${this.personaje}
+                    @alternar=${this.alternarContenido}
                 ></cabecera-personaje>
 
-                <div class="card-content">
-                    <button class="button mb-5" @click=${this.abrirModal}>
-                        Editar
-                    </button>
-                    
-                    ${this.renderizarSeccionPrincipal()}
-
-                    ${this.renderizarSeccionAtributos()}
-                    ${this.renderizarSeccionAtributosSociales()}
-
-                    ${this.renderizarSeccionAptitudesLucha()}
-                    ${this.renderizarSeccionAptitudesSupervivencia()}
-                    ${this.renderizarSeccionAptitudesSocial()}
-                    ${this.renderizarSeccionAptitudesSaber()}
-
-                    ${this.renderizarSeccionLogros()}
-                    ${this.renderizarSeccionMedallas()}
-
-                    ${this.renderizarSeccionInventario()}
-                </div>
+                ${this.contenidoEstaContraido ? "" : this.renderizarContenido()}
             </div>
 
             <modal-editar-personaje
