@@ -175,6 +175,10 @@ class FichaPersonaje extends ComponenteBase {
                 Aptitudes
             </p>
 
+            <p class="title ${colorTitulo} is-7 is-uppercase mb-4">
+                Lucha
+            </p>
+
             <div class="columns is-multiline is-desktop">
                 <div class="column is-half-desktop">
                     <caja-informativa
@@ -212,8 +216,14 @@ class FichaPersonaje extends ComponenteBase {
     }
 
     renderizarSeccionAptitudesSupervivencia() {
+        let colorTitulo = `has-text-${this.personaje.color}-soft-invert`
+
         return html`
-            <div class="columns is-multiline is-desktop mt-6">
+            <p class="title ${colorTitulo} is-7 is-uppercase mt-5 mb-4">
+                Supervivencia
+            </p>
+
+            <div class="columns is-multiline is-desktop">
                 <div class="column is-half-desktop">
                     <caja-informativa
                         tipo="puntos"
@@ -250,8 +260,14 @@ class FichaPersonaje extends ComponenteBase {
     }
 
     renderizarSeccionAptitudesSocial() {
+        let colorTitulo = `has-text-${this.personaje.color}-soft-invert`
+
         return html`
-            <div class="columns is-multiline is-desktop mt-6">
+            <p class="title ${colorTitulo} is-7 is-uppercase mt-5 mb-4">
+                Social
+            </p>
+
+            <div class="columns is-multiline is-desktop">
                 <div class="column is-half-desktop">
                     <caja-informativa
                         tipo="puntos"
@@ -296,8 +312,14 @@ class FichaPersonaje extends ComponenteBase {
     }
 
     renderizarSeccionAptitudesSaber() {
+        let colorTitulo = `has-text-${this.personaje.color}-soft-invert`
+
         return html`
-            <div class="columns is-multiline is-desktop mt-6">
+            <p class="title ${colorTitulo} is-7 is-uppercase mt-5 mb-4">
+                Saber
+            </p>
+
+            <div class="columns is-multiline is-desktop">
                 <div class="column is-half-desktop">
                     <caja-informativa
                         tipo="puntos"
