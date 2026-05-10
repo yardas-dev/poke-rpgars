@@ -5,24 +5,23 @@ class CabeceraPersonaje extends ComponenteBase {
     static get properties() {
         return {
             registro: { type: Object },
-            color: { type: String },
         }
     }
 
     constructor() {
         super()
         this.registro = {}
-        this.color = ""
     }
 
     connectedCallback() {
         super.connectedCallback()
-        this.color = this.registro.sexo === "mujer" ? "danger" : "info"
     }
 
     render() {
         return html`
-            <header class="card-header has-background-${this.color}-soft">
+            <header
+                class="card-header has-background-${this.registro.color}-soft"
+            >
                 <figure class="image is-96x96 m-4">
                     <img
                         src=${this.registro.icono}
@@ -43,7 +42,7 @@ class CabeceraPersonaje extends ComponenteBase {
                         ${this.registro.concepto}
                     </small>
                     <br />
-                    <small class="has-text-${this.color}-invert">
+                    <small class="has-text-${this.registro.color}-invert">
                         ${this.registro.edad} años,
                         naturaleza ${this.registro.naturaleza.nombre}
                     </small>
