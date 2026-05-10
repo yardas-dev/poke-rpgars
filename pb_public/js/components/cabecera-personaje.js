@@ -56,12 +56,6 @@ class CabeceraPersonaje extends ComponenteBase {
                         naturaleza ${this.registro.naturaleza.nombre}
                     </small>
                 </p>
-
-                <button class="card-header-icon">
-                    <span class="icon">
-                        <i class="fa-solid fa-angle-down"></i>
-                    </span>
-                </button>
             </header>
         `
     }
