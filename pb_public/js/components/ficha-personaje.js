@@ -124,7 +124,7 @@ class FichaPersonaje extends ComponenteBase {
                         tipo="puntos"
                         titulo="Carisma"
                         valor=${this.personaje.carisma}
-                        color="fuego"
+                        color="orange"
                     ></caja-informativa>
                 </div>
 

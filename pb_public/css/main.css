@@ -1,15 +1,30 @@
 :root {
-    --bulma-fuego-soft: hsla(
+    --bulma-orange-soft: hsla(
         20deg,
         var(--bulma-danger-s),
         var(--bulma-soft-l),
     1);
 }
 
-.has-background-fuego-soft {
-    background-color: var(--bulma-fuego-soft);
+.navbar-item img {
+    max-height: 48px;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.125em 0.25em hsla(
+        var(--bulma-scheme-h),
+        var(--bulma-scheme-s),
+        var(--bulma-scheme-invert-l),
+        0.1
+    );
 }
 
-img.esta-difuminada {
+.is-pointer {
+    cursor: pointer;
+}
+
+.has-background-orange-soft {
+    background-color: var(--bulma-orange-soft);
+}
+
+img.is-dimmed {
     opacity: 0.1;
 }
