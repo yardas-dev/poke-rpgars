@@ -3,17 +3,28 @@ import { ComponenteBase } from "../components/componente-base.js"
 import "./cabecera-personaje.js"
 import "./caja-informativa-rango.js"
 import "./caja-informativa.js"
+import "./modal-editar-personaje.js"
 
 class FichaPersonaje extends ComponenteBase {
     static get properties() {
         return {
             personaje: { type: Object },
+            modalEstaActiva: { type: Boolean },
         }
     }
 
     constructor() {
         super()
         this.personaje = {}
+        this.modalEstaActiva = false
+    }
+
+    abrirModal() {
+        this.modalEstaActiva = true
+    }
+
+    cerrarModal() {
+        this.modalEstaActiva = false
     }
 
     renderizarSeccionPrincipal() {
@@ -411,6 +422,10 @@ class FichaPersonaje extends ComponenteBase {
                 ></cabecera-personaje>
 
                 <div class="card-content">
+                    <button class="button mb-5" @click=${this.abrirModal}>
+                        Editar
+                    </button>
+                    
                     ${this.renderizarSeccionPrincipal()}
 
                     ${this.renderizarSeccionAtributos()}
@@ -427,6 +442,12 @@ class FichaPersonaje extends ComponenteBase {
                     ${this.renderizarSeccionInventario()}
                 </div>
             </div>
+
+            <modal-editar-personaje
+                .registro=${this.personaje}
+                .estaActiva=${this.modalEstaActiva}
+                @cerrar=${this.cerrarModal}
+            ></modal-editar-personaje>
         `
     }
 }
