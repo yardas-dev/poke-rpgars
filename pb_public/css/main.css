@@ -1,0 +1,15 @@
+:root {
+    --bulma-fuego-soft: hsla(
+        20deg,
+        var(--bulma-danger-s),
+        var(--bulma-soft-l),
+    1);
+}
+
+.has-background-fuego-soft {
+    background-color: var(--bulma-fuego-soft);
+}
+
+img.esta-difuminada {
+    opacity: 0.1;
+}
