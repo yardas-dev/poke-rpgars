@@ -27,43 +27,28 @@ class FichaPersonaje extends ComponenteBase {
 
                 <div class="column is-half-desktop">
                     <caja-informativa
-                        tipo="texto"
+                        tipo="progreso"
                         titulo="Salud"
-                        valor="
-                            ${
-                                this.personaje.saludActual
-                            }/${
-                                this.personaje.saludMax
-                            }
-                        "
+                        actual=${this.personaje.saludActual}
+                        max=${this.personaje.saludMax}
                     ></caja-informativa>
                 </div>
 
                 <div class="column is-half-desktop">
                     <caja-informativa
-                        tipo="texto"
+                        tipo="progreso"
                         titulo="Confianza"
-                        valor="
-                            ${
-                                this.personaje.confianzaActual
-                            }/${
-                                this.personaje.confianzaMax
-                            }
-                        "
+                        actual=${this.personaje.confianzaActual}
+                        max=${this.personaje.confianzaMax}
                     ></caja-informativa>
                 </div>
 
                 <div class="column is-half-desktop">
                     <caja-informativa
-                        tipo="texto"
+                        tipo="progreso"
                         titulo="Voluntad"
-                        valor="
-                            ${
-                                this.personaje.voluntadActual
-                            }/${
-                                this.personaje.voluntadMax
-                            }
-                        "
+                        actual=${this.personaje.voluntadActual}
+                        max=${this.personaje.voluntadMax}
                     ></caja-informativa>
                 </div>
             </div>

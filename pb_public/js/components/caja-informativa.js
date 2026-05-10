@@ -7,6 +7,8 @@ class CajaInformativa extends ComponenteBase {
             tipo: { type: String },
             titulo: { type: String },
             valor: { type: String },
+            actual: { type: Number },
+            max: { type: Number },
             estaHecho: { type: Boolean },
             color: { type: String },
             margenY: { type: Number },
@@ -24,6 +26,17 @@ class CajaInformativa extends ComponenteBase {
             <p class="subtitle is-6">
                 ${this.valor}
             </p>
+        `
+    }
+
+    renderizarProgreso() {
+        return html`
+            <p class="subtitle is-6 mb-2">
+                ${this.actual} / ${this.max}
+            </p>
+            <progress class="progress" value=${this.actual} max=${this.max}>
+                15%
+            </progress>
         `
     }
 
@@ -73,6 +86,10 @@ class CajaInformativa extends ComponenteBase {
         switch (this.tipo) {
             case "texto":
                 parrafoValor = this.renderizarTexto()
+                break
+            
+            case "progreso":
+                parrafoValor = this.renderizarProgreso()
                 break
 
             case "puntos":
