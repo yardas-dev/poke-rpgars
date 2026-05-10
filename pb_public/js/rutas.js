@@ -1,10 +1,10 @@
 import { html } from "https://cdn.jsdelivr.net/npm/lit@3.3.2/+esm"
 
-import "../views/vista-personajes.js"
-import "../views/vista-equipos.js"
-import "../views/vista-combates.js"
-import "../views/vista-encuentros.js"
-import "../views/vista-pokedex.js"
+import "./views/vista-personajes.js"
+import "./views/vista-equipos.js"
+import "./views/vista-combates.js"
+import "./views/vista-encuentros.js"
+import "./views/vista-pokedex.js"
 
 const rutas = [
     {
