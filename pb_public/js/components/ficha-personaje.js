@@ -9,22 +9,22 @@ class FichaPersonaje extends ComponenteBase {
     static get properties() {
         return {
             personaje: { type: Object },
-            modalEstaActiva: { type: Boolean },
+            modalEditarEstaActiva: { type: Boolean },
         }
     }
 
     constructor() {
         super()
         this.personaje = {}
-        this.modalEstaActiva = false
+        this.modalEditarEstaActiva = false
     }
 
     abrirModal() {
-        this.modalEstaActiva = true
+        this.modalEditarEstaActiva = true
     }
 
     cerrarModal() {
-        this.modalEstaActiva = false
+        this.modalEditarEstaActiva = false
     }
 
     renderizarSeccionPrincipal() {
@@ -467,7 +467,7 @@ class FichaPersonaje extends ComponenteBase {
 
             <modal-editar-personaje
                 .registro=${this.personaje}
-                .estaActiva=${this.modalEstaActiva}
+                .estaActiva=${this.modalEditarEstaActiva}
                 @cerrar=${this.cerrarModal}
             ></modal-editar-personaje>
         `
