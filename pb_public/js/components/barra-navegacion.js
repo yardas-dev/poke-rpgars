@@ -29,7 +29,13 @@ class BarraNavegacion extends ComponenteBase {
             <nav class="navbar">
                 <div class="navbar-brand">
                     <a class="navbar-item" href="/">
-                        Imagen aún no disponible
+                        <figure class="image is-48x48">
+                            <img
+                                src="/images/portada.jpeg"
+                                alt="Imagen no disponible"
+                            />
+                        </figure>
+                        <span>Poké RPGARS</span>
                     </a>
 
                     <a
