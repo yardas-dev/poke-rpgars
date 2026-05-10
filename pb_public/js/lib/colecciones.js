@@ -10,7 +10,7 @@ class GestorColecciones extends EventTarget {
     }
 
     async descargar() {
-        const conexion = new PocketBase("http://localhost:8090")
+        const conexion = new PocketBase()
         const [medallas, naturalezas, personajes, rangos] = await Promise.all([
             conexion.collection("medallas").getFullList(),
             conexion.collection("naturalezas").getFullList(),
