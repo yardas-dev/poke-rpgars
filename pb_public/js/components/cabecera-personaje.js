@@ -35,11 +35,11 @@ class CabeceraPersonaje extends ComponenteBase {
                     </strong>
                     <br />
                     <small>
-                        ${this.registro.ocupacion}
+                        ${this._normalizarMayus(this.registro.ocupacion)}
                     </small>
                     <br />
                     <small>
-                        ${this.registro.concepto}
+                        ${this._normalizarMayus(this.registro.concepto)}
                     </small>
                     <br />
                     <small class="has-text-${this.registro.color}-invert">
